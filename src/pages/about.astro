@@ -12,6 +12,9 @@ const skills = ["JavaScript", "Python", "Astro", "HTML", "CSS"];
 const check = false;
 // const age = 21;
 const age = 19;
+const skillColor = "blue";
+const fontWeight = "bold";
+const textCase = "uppercase"
 ---
 
 <html lang="ja">
@@ -21,6 +24,19 @@ const age = 19;
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{pageTitle}</title>
+		<style define:vars={{skillColor, fontWeight, textCase}}>
+			h1 {
+				color: #E86B79;
+				font-size: 3rem;
+			}
+			.skill {
+				/* color: #4A90E2; */
+				color: var(--skillColor);
+				/* font-weight: bold; */
+				font-weight: var(--fontWeight);
+				text-transform: var(--textCase);
+			}
+		</style>
 	</head>
 	<body>
         <a href="/">ホーム</a>
@@ -42,7 +58,7 @@ const age = 19;
 		<p>私のスキルは以下の通りです。</p>
 		<ul>
 			{skills.map((skill) => (
-				<li>{skill}</li>
+				<li class="skill">{skill}</li>
 			))}
 		</ul>
 		{
