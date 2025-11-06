@@ -1,5 +1,6 @@
 ---
 import { object } from "astro:schema"
+import '../styles/global.css';
 
 const pageTitle = "Izuchiについて";
 const identity = {
@@ -25,10 +26,10 @@ const textCase = "uppercase"
 		<meta name="generator" content={Astro.generator} />
 		<title>{pageTitle}</title>
 		<style define:vars={{skillColor, fontWeight, textCase}}>
-			h1 {
+			/* h1 {
 				color: #E86B79;
 				font-size: 3rem;
-			}
+			} */
 			.skill {
 				/* color: #4A90E2; */
 				color: var(--skillColor);
