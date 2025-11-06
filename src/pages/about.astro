@@ -1,5 +1,17 @@
 ---
+import { object } from "astro:schema"
 
+const pageTitle = "Izuchiについて";
+const identity = {
+	name: 'Izuchi',
+	country: '日本',
+	occupation: '大学生',
+	hobbies: ['プログラミング', '読書', 'ゲーム'],
+};
+const skills = ["JavaScript", "Python", "Astro", "HTML", "CSS"];
+const check = false;
+// const age = 21;
+const age = 19;
 ---
 
 <html lang="ja">
@@ -8,15 +20,40 @@
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<title>{pageTitle}</title>
 	</head>
 	<body>
         <a href="/">ホーム</a>
         <a href="/about">概要</a>
         <a href="/blog">ブログ</a>
-		<h1>Izuchiについて</h1>
+		<h1>{pageTitle}</h1>
 
         <p>大学3年生です。初めてWebサイトを作りました。</p>
         <p>作ったものや日常の活動などについて発信していきます。</p>
+		<h2>自己紹介</h2>
+		<ul>
+			<li>私の名前は{identity.name}です。</li>
+			<li>私は{identity.country}に住んでいる{identity.occupation}です。</li>
+			{
+				identity.hobbies.length >= 3 &&
+				<li>趣味は{identity.hobbies[0]}、{identity.hobbies[1]}、{identity.hobbies[2]}などです。</li>
+			}
+		</ul>
+		<p>私のスキルは以下の通りです。</p>
+		<ul>
+			{skills.map((skill) => (
+				<li>{skill}</li>
+			))}
+		</ul>
+		{
+			check && 
+			<p>課題は終わりました</p>
+			}
+		{
+			age >= 20 ?
+			<p>私は成人です。</p>
+			:
+			<p>私は未成年です。</p>
+		}
 	</body>
 </html>
