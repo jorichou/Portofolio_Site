@@ -1,5 +1,7 @@
 ---
 import '../styles/global.css'
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
 
 const pageTitle = "Izuchiのブログ";
 ---
@@ -13,9 +15,7 @@ const pageTitle = "Izuchiのブログ";
 		<title>{pageTitle}</title>
 	</head>
 	<body>
-		<a href="/">ホーム</a>
-        <a href="/about">概要</a>
-		<a href="/blog">ブログ</a>
+		<Navigation />
 		<h1>{pageTitle}</h1>
 
 		<p>日常の出来事や開発メモなどを載せていきます。</p>
@@ -25,5 +25,6 @@ const pageTitle = "Izuchiのブログ";
 			<li><a href="/posts/post-3">記事3</a></li>
 
 		</ul>
+		<Footer />
 	</body>
 </html>

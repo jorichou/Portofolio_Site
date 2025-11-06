@@ -1,6 +1,8 @@
 ---
 import { object } from "astro:schema"
 import '../styles/global.css';
+import Navigation from "../components/Navigation.astro";
+import Footer from "../components/Footer.astro";
 
 const pageTitle = "Izuchiについて";
 const identity = {
@@ -25,11 +27,11 @@ const textCase = "uppercase"
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{pageTitle}</title>
-		<style define:vars={{skillColor, fontWeight, textCase}}>
-			/* h1 {
+		<!-- <style define:vars={{skillColor, fontWeight, textCase}}>
+			h1 {
 				color: #E86B79;
 				font-size: 3rem;
-			} */
+			}
 			.skill {
 				/* color: #4A90E2; */
 				color: var(--skillColor);
@@ -37,12 +39,10 @@ const textCase = "uppercase"
 				font-weight: var(--fontWeight);
 				text-transform: var(--textCase);
 			}
-		</style>
+		</style> -->
 	</head>
 	<body>
-        <a href="/">ホーム</a>
-        <a href="/about">概要</a>
-        <a href="/blog">ブログ</a>
+        <Navigation />
 		<h1>{pageTitle}</h1>
 
         <p>大学3年生です。初めてWebサイトを作りました。</p>
@@ -72,5 +72,6 @@ const textCase = "uppercase"
 			:
 			<p>私は未成年です。</p>
 		}
+		<Footer />
 	</body>
 </html>
