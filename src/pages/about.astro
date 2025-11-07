@@ -1,7 +1,5 @@
 ---
-import '../styles/global.css';
-import Header from '../components/Header.astro';
-import Footer from "../components/Footer.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
 
 const pageTitle = "Ryousukeについて";
 const identity = {
@@ -19,61 +17,45 @@ const fontWeight = "bold";
 const textCase = "uppercase"
 ---
 
-<html lang="ja">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{pageTitle}</title>
-		<!-- <style define:vars={{skillColor, fontWeight, textCase}}>
-			h1 {
-				color: #E86B79;
-				font-size: 3rem;
-			}
-			.skill {
-				/* color: #4A90E2; */
-				color: var(--skillColor);
-				/* font-weight: bold; */
-				font-weight: var(--fontWeight);
-				text-transform: var(--textCase);
-			}
-		</style> -->
-	</head>
-	<body>
-        <Header />
-		<h1>{pageTitle}</h1>
-
-        <p>大学3年生です。初めてWebサイトを作りました。</p>
-        <p>作ったものや日常の活動などについて発信していきます。</p>
-		<h2>自己紹介</h2>
-		<ul>
-			<li>私の名前は{identity.name}です。</li>
-			<li>私は{identity.country}に住んでいる{identity.occupation}です。</li>
-			{
-				identity.hobbies.length >= 3 &&
-				<li>趣味は{identity.hobbies[0]}、{identity.hobbies[1]}、{identity.hobbies[2]}などです。</li>
-			}
-		</ul>
-		<p>私のスキルは以下の通りです。</p>
-		<ul>
-			{skills.map((skill) => (
-				<li class="skill">{skill}</li>
-			))}
-		</ul>
-		{
-			check && 
-			<p>課題は終わりました</p>
-			}
-		{
-			age >= 20 ?
-			<p>私は成人です。</p>
-			:
-			<p>私は未成年です。</p>
+<BaseLayout pageTitle={pageTitle}>
+	<style define:vars={{skillColor, fontWeight, textCase}}>
+		h1 {
+			color: #E86B79;
+			font-size: 3rem;
 		}
-		<Footer />
-		<script>
-			import "../scripts/menu.js";
-		</script>
-	</body>
-</html>
+		.skill {
+			/* color: #4A90E2; */
+			color: var(--skillColor);
+			/* font-weight: bold; */
+			font-weight: var(--fontWeight);
+			text-transform: var(--textCase);
+		}
+	</style>
+	<p>大学3年生です。初めてWebサイトを作りました。</p>
+	<p>作ったものや日常の活動などについて発信していきます。</p>
+	<h2>自己紹介</h2>
+	<ul>
+		<li>私の名前は{identity.name}です。</li>
+		<li>私は{identity.country}に住んでいる{identity.occupation}です。</li>
+		{
+			identity.hobbies.length >= 3 &&
+			<li>趣味は{identity.hobbies[0]}、{identity.hobbies[1]}、{identity.hobbies[2]}などです。</li>
+		}
+	</ul>
+	<p>私のスキルは以下の通りです。</p>
+	<ul>
+		{skills.map((skill) => (
+			<li class="skill">{skill}</li>
+		))}
+	</ul>
+	{
+		check && 
+		<p>課題は終わりました</p>
+		}
+	{
+		age >= 20 ?
+		<p>私は成人です。</p>
+		:
+		<p>私は未成年です。</p>
+	}
+</BaseLayout>
