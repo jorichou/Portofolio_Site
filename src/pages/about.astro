@@ -1,6 +1,6 @@
 ---
 import '../styles/global.css';
-import Navigation from "../components/Navigation.astro";
+import Header from '../components/Header.astro';
 import Footer from "../components/Footer.astro";
 
 const pageTitle = "Ryousukeについて";
@@ -41,7 +41,7 @@ const textCase = "uppercase"
 		</style> -->
 	</head>
 	<body>
-        <Navigation />
+        <Header />
 		<h1>{pageTitle}</h1>
 
         <p>大学3年生です。初めてWebサイトを作りました。</p>
@@ -72,5 +72,8 @@ const textCase = "uppercase"
 			<p>私は未成年です。</p>
 		}
 		<Footer />
+		<script>
+			import "../scripts/menu.js";
+		</script>
 	</body>
 </html>

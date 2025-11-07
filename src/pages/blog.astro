@@ -1,6 +1,6 @@
 ---
 import '../styles/global.css'
-import Navigation from '../components/Navigation.astro';
+import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
 const pageTitle = "Ryousukeのブログ";
@@ -15,7 +15,7 @@ const pageTitle = "Ryousukeのブログ";
 		<title>{pageTitle}</title>
 	</head>
 	<body>
-		<Navigation />
+		<Header />
 		<h1>{pageTitle}</h1>
 
 		<p>日常の出来事や開発メモなどを載せていきます。</p>
@@ -26,5 +26,8 @@ const pageTitle = "Ryousukeのブログ";
 
 		</ul>
 		<Footer />
+		<script>
+			import "../scripts/menu.js";
+		</script>
 	</body>
 </html>

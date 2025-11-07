@@ -1,6 +1,6 @@
 ---
 import '../styles/global.css'
-import Navigation from '../components/Navigation.astro'
+import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
 const pageTitle = "ホームページ";
@@ -15,9 +15,13 @@ const pageTitle = "ホームページ";
 		<title>{pageTitle}</title>
 	</head>
 	<body>
-		<Navigation />
+		<Header />
 		<h1>{pageTitle}</h1>
 		<Footer />
+		<script>
+			import "../scripts/script.js";
+		</script>
+		
 	</body>
 	
 </html>
