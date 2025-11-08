@@ -1,4 +1,5 @@
 ---
+layout: ../../layouts/MarkdownPostLayout.astro
 title: 私の2番目のブログ記事
 author: izuchi
 description: "Astroを少し学んだら、止まらなくなりました！"

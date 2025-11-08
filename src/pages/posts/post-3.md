@@ -1,4 +1,5 @@
 ---
+layout: ../../layouts/MarkdownPostLayout.astro
 title: 私の3番目のブログ記事
 author: izhichi
 description: "上手くいかないことがありましたが、コミュニティに質問して助けてもらいました！"
