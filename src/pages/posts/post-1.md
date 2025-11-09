@@ -7,7 +7,7 @@ author: 'ryousuke'
 image:
     url: 'https://docs.astro.build/assets/full-logo-light.png'
     alt: 'Astroのロゴ。'
-tags: ["astro", "ブログ", "公開学習"]
+tags: ["astro", "ブログ", "公開学習", "学習"]
 ---
 
 
