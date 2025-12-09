@@ -1,11 +1,14 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Greeting from "../components/Greeting";
-const pageTitle = "ホームページ";
+import ContentFrame from "../components/ContentFrame.astro";
+const pageTitle = "ホーム";
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-	<h2>サブタイトル</h2>
-	<Greeting client:load messages={["Hej", "Hallo", "Hola", "Habari"]} />
+	<ContentFrame title="Works" rubi="-作品-">
+		<h2>サブタイトル</h2>
+		<Greeting client:load messages={["Hej", "Hallo", "Hola", "Habari"]} />
+	</ContentFrame>
 </BaseLayout>
 

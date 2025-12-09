@@ -6,8 +6,8 @@ html {
 body {
   margin: 0 auto;
   width: 100%;
-  max-width: 80ch;
-  padding: 1rem;
+  /* max-width: 80ch; */
+  /* padding: 1rem; */
   line-height: 1.5;
 }
 
@@ -21,6 +21,27 @@ h1 {
   font-size: 2.5rem;
 }
 
+.w-wrap {
+  padding: 0 2rem;
+  width: 100%;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: #F5F5F5;
+  height: 5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-logo img{
+  height: 3rem;
+}
+
 /* ナビゲーションのスタイル */
 .hamburger {
   padding-right: 20px;
@@ -32,7 +53,7 @@ h1 {
   width: 40px;
   height: 5px;
   margin-bottom: 10px;
-  background-color: #ff9776;
+  background-color: #E86B79;
 }
 
 .nav-links {
@@ -51,12 +72,14 @@ h1 {
   text-decoration: none;
   font-size: 1.2rem;
   font-weight: bold;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
+  color: #E86B79;
+  transition: 0.7s;
 }
 
-.nav-links a:hover, a:focus {
-  background-color: #ff9776;
-}
+/* .nav-links a:hover, a:focus {
+  color: #00897B;
+} */
 
 .expanded {
   display: unset;
@@ -88,4 +111,8 @@ html.dark {
 
 .dark .nav-links a {
   color: #fff;
+}
+
+html.dark header {
+  background-color: #0d0950;
 }

@@ -4,10 +4,15 @@ import Navigation from "./Navigation.astro";
 import ThemeIcon from "./ThemeIcon.astro";
 ---
 
-<header>
+<header class="w-wrap">
+    <div class="header-logo">
+        <a href="/">
+            <img src="/images/izuchi-logo-name2.png" alt="ロゴ">
+        </a>
+    </div>
     <nav>
         <Hamburger />
-        <ThemeIcon />
+        <!-- <ThemeIcon /> -->
         <Navigation />
     </nav>
 </header>
