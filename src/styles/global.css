@@ -56,14 +56,14 @@ header {
   background-color: #E86B79;
 }
 
-.nav-links {
+/* .nav-links {
   width: 100%;
   top: 5rem;
   left: 48px;
   background-color: #ff9776;
   display: none;
   margin: 0;
-}
+} */
 
 .nav-links a {
   display: block;
