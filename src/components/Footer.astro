@@ -1,15 +1,56 @@
 ---
+import Navigation from "./Navigation.astro";
 import Social from "./Social.astro";
 ---
 <style>
     footer {
         display: flex;
+        flex-direction: column;
+        align-items: center;
         gap: 1rem;
-        margin-top: 2vw;
+        padding-top: 3vw;
+        background-color: #515050;
+        color: #FFFFFF;
+    }
+
+    .footer-box {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 2vh 0;
+
+    }
+
+    .footer-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        
+    }
+
+    .footer-top img {
+        height: 3rem;
+    }
+
+    .footer-element {
+        margin: 5vh 0;
     }
 </style>
 
 <footer class="w-wrap">
-    <Social platform="github" username="jorichou" />
-    <Social platform="x" username="izuchi_main" />
+    <div class="footer-box">
+        <div class="footer-top footer-element">
+            <a href="/">
+                <img src="/public/images/izuchi-logo-name-monox0.5.png" alt="ロゴ">
+            </a>
+            <Navigation />
+        </div>
+        <div class="social-media-links footer-element">
+            <Social platform="github" username="jorichou" />
+            <Social platform="x" username="izuchi_main" />
+        </div>
+        <p class="footer-element">&copy;izuzhi 2025</p>
+    </div>
+    
+    
 </footer>
