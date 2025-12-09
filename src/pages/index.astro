@@ -6,9 +6,18 @@ const pageTitle = "ホーム";
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-	<ContentFrame title="Works" rubi="-作品-">
+	<div class="hero">
+
+	</div>
+	<ContentFrame chapterTitle="Works" rubi="作品">
 		<h2>サブタイトル</h2>
 		<Greeting client:load messages={["Hej", "Hallo", "Hola", "Habari"]} />
 	</ContentFrame>
+	<ContentFrame chapterTitle="About" rubi="私について">
+
+	</ContentFrame>	
 </BaseLayout>
 
+<style>
+	
+</style>

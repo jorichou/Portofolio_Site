@@ -81,6 +81,11 @@ header {
   color: #00897B;
 } */
 
+.title-rubi {
+  color: #E86B79;
+  font-weight: 500;
+}
+
 .expanded {
   display: unset;
 }
