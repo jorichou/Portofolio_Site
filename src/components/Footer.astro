@@ -10,7 +10,7 @@ import Social from "./Social.astro";
         gap: 1rem;
         padding-top: 3vw;
         background-color: #515050;
-        color: #FFFFFF;
+        color: #F5F5F5;
     }
 
     .footer-box {
@@ -35,6 +35,11 @@ import Social from "./Social.astro";
     .footer-element {
         margin: 5vh 0;
     }
+
+    .social-media-links {
+        display: flex;
+        flex-direction: row;
+    }
 </style>
 
 <footer class="w-wrap">
@@ -46,8 +51,8 @@ import Social from "./Social.astro";
             <Navigation />
         </div>
         <div class="social-media-links footer-element">
-            <Social platform="github" username="jorichou" />
-            <Social platform="x" username="izuchi_main" />
+            <Social platform="github" username="jorichou" iconClass="fa-brands fa-github" />
+            <Social platform="x" username="izuchi_main" iconClass="fa-brands fa-x-twitter" />
         </div>
         <p class="footer-element">&copy;izuzhi 2025</p>
     </div>

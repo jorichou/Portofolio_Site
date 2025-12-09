@@ -1,13 +1,36 @@
 ---
-const {platform, username} = Astro.props;
+const {platform, username, iconClass} = Astro.props;
 ---
-<a href={`https://www.${platform}.com/${username}`}>{platform}</a>
+<div class="icon-size icon-box">
+    <a href={`https://www.${platform}.com/${username}`}>
+        <i class={iconClass}></i>
+    </a>
+    
+</div>
+
+
 
 <style>
     a {
         padding: 0.5rem 1rem;
         color: #F5F5F5;
-        background-color: #707070;
+        /* background-color: #707070; */
         text-decoration: none;
+    }
+
+    i {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: fit-content;
+        justify-content: center;
+    }
+
+    .icon-size i{
+        font-size: 2rem;
+    }
+
+    .icon-box {
+        margin: 0 1.5rem;
     }
 </style>
