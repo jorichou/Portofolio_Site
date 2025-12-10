@@ -1,14 +1,17 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import ContentFrame from "../components/ContentFrame.astro";
 import BlogPost from "../components/BlogPost.astro";
 const allPosts = Object.values(import.meta.glob('./posts/*.md', { eager: true }));
-const pageTitle = "Ryousukeのブログ";
+const pageTitle = "Blog";
 ---
 
 
 <BaseLayout pageTitle={pageTitle}>
-	<p>日常の出来事や開発メモなどを載せていきます。</p>
-	<ul>
-		{allPosts.map((post: any) => <BlogPost url={post.url} title={post.frontmatter.title} />)}
-	</ul>
+	<ContentFrame chapterTitle={pageTitle} rubi="ブログ">
+		<p>日常の出来事や開発メモなどを載せていきます。</p>
+		<ul>
+			{allPosts.map((post: any) => <BlogPost url={post.url} title={post.frontmatter.title} />)}
+		</ul>
+	</ContentFrame>
 </BaseLayout>
