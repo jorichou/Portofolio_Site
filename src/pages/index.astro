@@ -4,7 +4,12 @@ import Greeting from "../components/Greeting";
 import ContentFrame from "../components/ContentFrame.astro";
 import Hero from "../components/Hero.astro";
 import Button from "../components/button.astro";
+import BlogPost from "../components/BlogPost.astro";
 const pageTitle = "ホーム";
+
+const allPosts = await Astro.glob('../pages/posts/*.md');
+const sortedPosts = allPosts.sort((a, b) => new Date(b.frontmatter.pubDate).valueOf() - new Date(a.frontmatter.pubDate).valueOf());
+const posts = sortedPosts.slice(0, 4);
 ---
 
 <BaseLayout pageTitle={pageTitle}>
@@ -40,8 +45,9 @@ const pageTitle = "ホーム";
 	<ContentFrame chapterTitle="Blog" rubi="ブログ">
 		<div slot="chapter-content" class="chapter-box">
 			<div class="chapter-content">
-				<h2>サブタイトル</h2>
-				<Greeting client:load messages={["Hej", "Hallo", "Hola", "Habari"]} />
+				<ul class="blog-list">
+					{posts.map((post) => <BlogPost postDate={post.frontmatter.pubDate} img_url={post.frontmatter.image.url} title={post.frontmatter.title} url={post.url} />)}
+				</ul>
 			</div>
 			
 			<Button buttonName="View All" link="/blog"/>
@@ -50,5 +56,5 @@ const pageTitle = "ホーム";
 </BaseLayout>
 
 <style>
-	
+
 </style>
