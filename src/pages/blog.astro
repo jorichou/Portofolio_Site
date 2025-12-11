@@ -2,16 +2,21 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import ContentFrame from "../components/ContentFrame.astro";
 import BlogPost from "../components/BlogPost.astro";
-const allPosts = Object.values(import.meta.glob('./posts/*.md', { eager: true }));
+const allPosts = Object.values(import.meta.glob('./posts/post*.md', { eager: true }));
+const sortedPosts = allPosts.sort((a, b) => new Date(b.frontmatter.pubDate).valueOf() - new Date(a.frontmatter.pubDate).valueOf());
+const posts = sortedPosts
 const pageTitle = "Blog";
 ---
 
 
 <BaseLayout pageTitle={pageTitle}>
-	<ContentFrame chapterTitle={pageTitle} rubi="ブログ">
-		<p>日常の出来事や開発メモなどを載せていきます。</p>
-		<ul>
-			{allPosts.map((post: any) => <BlogPost url={post.url} title={post.frontmatter.title} />)}
-		</ul>
+	<ContentFrame  chapterTitle={pageTitle} rubi="ブログ">
+		<div slot="chapter-content" class="chapter-box">
+			<div class="chapter-content">
+				<ul class="blog-list">
+					{posts.map((post) => <BlogPost postDate={post.frontmatter.pubDate} img_url={post.frontmatter.image.url} title={post.frontmatter.title} url={post.url} />)}
+				</ul>
+			</div>
+		</div>
 	</ContentFrame>
 </BaseLayout>
