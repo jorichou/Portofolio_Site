@@ -15,6 +15,10 @@ body {
   box-sizing: border-box;
 }
 
+main {
+  margin-bottom: 20vh;
+}
+
 h1 {
   margin: 1rem 0;
   color: #E86B79;
@@ -88,6 +92,20 @@ header {
 
 .expanded {
   display: unset;
+}
+
+.chapter-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+}
+
+.chapter-content {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 6vw;
 }
 
 @media screen and (min-width: 636px) {

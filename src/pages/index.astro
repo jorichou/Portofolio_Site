@@ -3,18 +3,50 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import Greeting from "../components/Greeting";
 import ContentFrame from "../components/ContentFrame.astro";
 import Hero from "../components/Hero.astro";
+import Button from "../components/button.astro";
 const pageTitle = "ホーム";
 ---
 
 <BaseLayout pageTitle={pageTitle}>
 	<Hero slot="hero" />
 	<ContentFrame chapterTitle="Works" rubi="作品">
-		<h2>サブタイトル</h2>
-		<Greeting client:load messages={["Hej", "Hallo", "Hola", "Habari"]} />
+		<div slot="chapter-content" class="chapter-box">
+			<div class="chapter-content">
+				<h2>サブタイトル</h2>
+				<Greeting client:load messages={["Hej", "Hallo", "Hola", "Habari"]} />
+			</div>
+			<Button buttonName="View All" link="/work"/>
+		</div>
+		
 	</ContentFrame>
 	<ContentFrame chapterTitle="About" rubi="私について">
-
+		<div slot="chapter-content" class="chapter-box">
+			<div class="chapter-content">
+				<h2>サブタイトル</h2>
+				<Greeting client:load messages={["Hej", "Hallo", "Hola", "Habari"]} />
+			</div>
+			<Button buttonName="View More" link="/about"/>
+		</div>
 	</ContentFrame>	
+	<ContentFrame chapterTitle="News" rubi="ニュース">
+		<div slot="chapter-content" class="chapter-box">
+			<div class="chapter-content">
+				<h2>サブタイトル</h2>
+				<Greeting client:load messages={["Hej", "Hallo", "Hola", "Habari"]} />
+			</div>
+			<Button buttonName="View All" link="/news"/>
+		</div>
+	</ContentFrame>
+	<ContentFrame chapterTitle="Blog" rubi="ブログ">
+		<div slot="chapter-content" class="chapter-box">
+			<div class="chapter-content">
+				<h2>サブタイトル</h2>
+				<Greeting client:load messages={["Hej", "Hallo", "Hola", "Habari"]} />
+			</div>
+			
+			<Button buttonName="View All" link="/blog"/>
+		</div>
+	</ContentFrame>
 </BaseLayout>
 
 <style>

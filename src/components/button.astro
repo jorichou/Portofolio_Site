@@ -1,0 +1,28 @@
+---
+const {buttonName} = Astro.props;
+const {link} = Astro.props
+---
+
+<style>
+    .button-body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #E86B79;
+        width: 8.2rem;
+        height: 2.6rem;
+        border-radius: 6px;
+    }
+
+    .button-body a {
+        text-decoration: none;
+        color: #F5F5F5;
+        font-weight: bold;
+        font-size: 1.2rem;
+    }
+
+</style>
+
+<div class="button-body">
+    <a href={link}>{buttonName}</a>
+</div>
