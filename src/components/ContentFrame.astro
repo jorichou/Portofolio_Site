@@ -6,7 +6,8 @@ const { chapterTitle, rubi } = Astro.props;
     <h2 class="chapter-title">{chapterTitle}</h2>
     <p class="title-rubi">{rubi}</p>
 </div>
-<slot></slot>
+<slot name="sub-nemu"/>
+<div class="under-chapter-title-line"></div>
 
 <style>
     .chapter-title {
@@ -29,6 +30,7 @@ const { chapterTitle, rubi } = Astro.props;
         /* justify-content: center; */
         color: #E86B79;
         font-size: 0.75rem;
+        margin: 0;
     }
 
     .title-rubi::before,
@@ -37,6 +39,10 @@ const { chapterTitle, rubi } = Astro.props;
         width: 1em;
         height: 1px;
         background: #E86B79;
-        margin: 0 1em;
+        margin: 0 0.5em;
+    }
+
+    .under-chapter-title-line  {
+        border: solid #E86B79 1.2px;
     }
 </style>
