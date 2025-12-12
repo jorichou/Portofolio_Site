@@ -4,9 +4,9 @@ const { postDate, img_url, title, url } = Astro.props;
 // A simple date formatter
 const formattedDate = new Date(postDate).toLocaleDateString('ja-JP', {
   year: 'numeric',
-  month: 'long',
-  day: 'numeric',
-});
+  month: '2-digit',
+  day: '2-digit',
+}).replace(/\//g, '.');
 ---
 <style>
 li {
@@ -45,7 +45,8 @@ a {
 }
 
 .date {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
+    font-weight: bold;
     color: #707070;
     margin: 0;
 }
