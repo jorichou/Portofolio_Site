@@ -90,6 +90,10 @@ header {
   font-weight: 500;
 }
 
+  .under-chapter-title-line  {
+      border: solid #E86B79 1.2px;
+  }
+
 .expanded {
   display: unset;
 }
@@ -115,6 +119,15 @@ header {
   list-style-type: none;
 	padding: 0;
   width: 100%;
+}
+
+.news-list {
+  /* border-bottom: solid  #E86B79 1.2px; */
+  flex-direction: column;
+  padding: 0;
+  width: 100%;
+  list-style-type: none;
+  margin: 0;
 }
 
 @media screen and (min-width: 636px) {

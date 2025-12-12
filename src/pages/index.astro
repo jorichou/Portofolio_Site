@@ -5,11 +5,15 @@ import ContentFrame from "../components/ContentFrame.astro";
 import Hero from "../components/Hero.astro";
 import Button from "../components/button.astro";
 import BlogPost from "../components/BlogPost.astro";
-const pageTitle = "ホーム";
+import NewsPost from "../components/NewsPost.astro";
+const pageTitle = "Home";
 
 const allPosts = await Astro.glob('../pages/posts/*.md');
 const sortedPosts = allPosts.sort((a, b) => new Date(b.frontmatter.pubDate).valueOf() - new Date(a.frontmatter.pubDate).valueOf());
 const posts = sortedPosts.slice(0, 4);
+const allNews = await Astro.glob('../pages/news/*.md')
+const sortedNews = allNews.sort((a, b) => new Date(b.frontmatter.puDate).valueOf() - new Date(a.frontmatter.puDate).valueOf());
+const news = sortedNews.slice(0, 4);
 ---
 
 <BaseLayout pageTitle={pageTitle}>
@@ -36,8 +40,9 @@ const posts = sortedPosts.slice(0, 4);
 	<ContentFrame chapterTitle="News" rubi="ニュース">
 		<div slot="chapter-content" class="chapter-box">
 			<div class="chapter-content">
-				<h2>サブタイトル</h2>
-				<Greeting client:load messages={["Hej", "Hallo", "Hola", "Habari"]} />
+				<ul class="news-list">
+					{news.map((news) => <NewsPost postDate={news.frontmatter.pubDate} title={news.frontmatter.title} url={news.url} />)}
+				</ul>
 			</div>
 			<Button buttonName="View All" link="/news"/>
 		</div>

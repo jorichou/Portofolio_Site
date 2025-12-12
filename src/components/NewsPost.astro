@@ -1,0 +1,60 @@
+---
+const { postDate, title, url } = Astro.props;
+
+// A simple date formatter
+const formattedDate = new Date(postDate).toLocaleDateString('ja-JP', {
+  year: 'numeric',
+  month: '2-digit',
+  day: '2-digit',
+}).replace(/\//g, '.');
+---
+<style>
+    li {
+        
+        
+    }
+
+    .news-post a:hover p{
+        color: #E86B79;
+    }
+
+    a {
+        display: flex;
+        text-decoration: none;
+        color: inherit;
+        flex-direction: column;
+        /* padding: 1rem; */
+        /* height: 15vh; */
+    }
+
+    .text-content {
+        display: flex;
+        align-items: center;
+        height: 13vh;
+        padding: 1rem;
+    }
+
+    .date {
+        font-size: 1.1rem;
+        color: #707070;
+        font-weight: bold;
+        /* margin: 0; */
+    }
+
+    .title {
+        font-size: 1.1rem;
+        font-weight: bold;
+        margin: 0 5rem;
+        color: #707070;
+    }
+</style>
+
+<li class="news-post">
+    <a href={url}>
+        <div class="text-content">
+            <p class="date">{formattedDate}</p>
+            <p class="title">{title}</p>
+        </div>
+    </a>
+    <div class="under-chapter-title-line"></div>
+</li>
