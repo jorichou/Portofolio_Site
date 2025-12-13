@@ -130,6 +130,19 @@ header {
   margin: 0;
 }
 
+.work-list {
+  display: grid;
+  grid-template-columns: repeat(4, calc(25% - 10px));
+  /* flex-direction: row;
+  justify-content: left; */
+  /* flex-wrap: wrap; */
+  gap: 32px 20px;
+  list-style: none;
+  padding: 0;
+  margin: 10vh 0;
+  width: 100%;
+}
+
 @media screen and (min-width: 636px) {
   .nav-links {
     margin-left: 5em;

@@ -1,0 +1,94 @@
+---
+const { postDate, img_url, work_type, title, url } = Astro.props;
+
+const year = new Date(postDate).getFullYear();
+---
+
+<style>
+    li {
+        /* margin: 0; */
+        /* margin-top: 10vh; */
+        /* width: calc((100% - 6rem) / 4); */
+    }
+
+    a {
+        display: flex;
+        flex-direction: column;
+        text-decoration: none;
+        color: inherit;
+    }
+
+    /* Hover effects */
+    a:hover .text-content p {
+        color: #e86b79;
+    }
+
+    a:hover .work-type {
+        border-right-color: #e86b79;
+    }
+
+    .img-container {
+        aspect-ratio: 1 / 1;
+        background-color: #f0f0f0;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+    }
+
+    .img-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .text-content {
+        padding: 1rem 0.7rem;
+    }
+
+    .text-content p {
+        font-weight: bold;
+        color: #707070;
+        transition: color 0.4s;
+    }
+
+    .upper-content {
+        display: flex;
+        flex-direction: row;
+        margin: 0 0 0.7rem 0;
+    }
+
+    .upper-content p {
+        font-size: 1.0rem;
+    }
+
+    .work-type {
+        padding: 0 1vw 0 0;
+        margin: 0;
+        border-right: solid #707070 2px;
+        transition: color 0.4s, border-color 0.4s;
+    }
+
+    .year {
+        padding: 0 0 0 1vw;
+        margin: 0;
+    }
+
+    .title {
+        font-size: 1.1rem;
+        margin: 0;
+    }
+</style>
+
+<li>
+    <a href={url}>
+        <div class="img-container">
+            <img src={img_url} alt={`Image for ${title}`}>
+        </div>
+        <div class="text-content">
+            <div class="upper-content">
+                <p class="work-type upper-item">{work_type}</p>
+                <p class="year upper-item">{year}</p>
+            </div>
+            <p class="title">{title}</p>
+        </div>
+    </a>
+</li>
