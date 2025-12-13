@@ -131,12 +131,11 @@ header {
 }
 
 .work-list {
-  display: grid;
-  grid-template-columns: repeat(4, calc(25% - 10px));
-  /* flex-direction: row;
-  justify-content: left; */
-  /* flex-wrap: wrap; */
-  gap: 32px 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 2rem;
   list-style: none;
   padding: 0;
   margin: 10vh 0;

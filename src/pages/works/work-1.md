@@ -5,7 +5,7 @@ pubDate: 2025-12-13
 description: 'ポートフォリオサイトの紹介'
 author: 'ryousuke'
 image:
-    url: 'https://docs.astro.build/assets/full-logo-light.png'
+    url: '/izuchi-logo2.svg'
     alt: 'Astroのロゴ。'
 tags: ["Webサイト", "Astro"]
 type: "Webサイト"
