@@ -9,7 +9,20 @@ const year = new Date(postDate).getFullYear();
         /* margin: 0; */
         /* margin-top: 10vh; */
         width: calc((100% - 6rem) / 4);
+        transition: box-shadow 0.5s;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
     }
+
+    li:hover {
+        
+        box-shadow:0 0 10px rgba(232, 107, 121, 1)
+    }
+
+    /* .img-container:hover {
+        box-shadow: none;
+    } */
+
 
     a {
         display: flex;
@@ -19,19 +32,20 @@ const year = new Date(postDate).getFullYear();
     }
 
     /* Hover effects */
-    a:hover .text-content p {
+    /* a:hover .text-content p {
         color: #e86b79;
     }
 
     a:hover .work-type {
         border-right-color: #e86b79;
-    }
+    } */
+
 
     .img-container {
         aspect-ratio: 1 / 1;
         background-color: #f0f0f0;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        border-radius: 8px;
+        
+        /* border-radius: 8px; */
     }
 
     .img-container img {
@@ -41,7 +55,7 @@ const year = new Date(postDate).getFullYear();
     }
 
     .text-content {
-        padding: 1rem 0.7rem;
+        padding: 1rem 1.2rem;
     }
 
     .text-content p {
@@ -64,7 +78,7 @@ const year = new Date(postDate).getFullYear();
         padding: 0 1vw 0 0;
         margin: 0;
         border-right: solid #707070 2px;
-        transition: color 0.4s, border-color 0.4s;
+        /* transition: color 0.4s, border-color 0.4s; */
     }
 
     .year {
