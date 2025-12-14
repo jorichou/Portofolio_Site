@@ -1,0 +1,44 @@
+---
+const {platform, username, platformName} = Astro.props;
+---
+
+<style>
+    li {
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        width: calc((100% - 6rem) / 4);
+        transition: box-shadow 0.3s;
+    }
+
+    li:hover {
+        box-shadow:0 0 10px rgb(232, 107, 121, 1)
+    }
+
+    .link-item {
+        display: flex;
+        text-decoration: none;
+        justify-content: space-between;
+        align-items: center;
+        height: 15vh;
+        padding: 0.7rem 2rem;
+    }
+
+    .link-item i {
+        color: #707070;
+        font-size: 1.3rem;
+    }
+
+    .platform-name {
+        color: #707070;
+        font-weight: bold;
+        font-size: 1.5rem;
+    }
+</style>
+
+<li>
+    <a href={`https://www.${platform}.com/${username}`} class="link-item">
+        <p class="platform-name">{platformName}</p>
+        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+    </a>
+</li>
