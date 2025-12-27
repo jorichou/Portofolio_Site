@@ -1,0 +1,28 @@
+---
+// src/components/TableOfContents.astro
+import type { MarkdownHeading } from "astro";
+
+export interface Props {
+    headings: MarkdownHeading[];
+}
+
+const { headings } = Astro.props;
+
+// h1は記事タイトルで使われるため、h2とh3のみを目次に含める
+const toc = headings.filter(
+    (heading) => heading.depth > 1 && heading.depth < 4,
+);
+---
+
+<nav class="toc" aria-label="目次">
+    <h2>Index</h2>
+    <ul>
+        {
+            toc.map((heading) => (
+                <li class={`toc-item toc-depth-${heading.depth}`}>
+                    <a href={`#${heading.slug}`}>{heading.text}</a>
+                </li>
+            ))
+        }
+    </ul>
+</nav>

@@ -1,63 +1,73 @@
 html {
-  background-color: #F5F5F5;
-  font-family: sans-serif;
+    background-color: #f5f5f5;
+    font-family: sans-serif;
 }
 
 body {
-  margin: 0 auto;
-  width: 100%;
-  /* max-width: 80ch; */
-  /* padding: 1rem; */
-  line-height: 1.5;
+    margin: 0 auto;
+    width: 100%;
+    /* max-width: 80ch; */
+    /* padding: 1rem; */
+    line-height: 1.5;
 }
 
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 main {
-  margin-bottom: 20vh;
+    margin-bottom: 20vh;
 }
 
 h1 {
-  margin: 1rem 0;
-  color: #E86B79;
-  font-size: 2.5rem;
+    margin: 1rem 0;
+    color: #e86b79;
+    font-size: 2.5rem;
+}
+
+h2 {
+    color: #707070;
+}
+
+p {
+    color: #707070;
+    font-weight: 500;
+    /*margin: 10px 0;*/
 }
 
 .w-wrap {
-  padding: 0 2rem;
-  width: 100%;
+    padding: 0 2rem;
+    width: 100%;
 }
 
 header {
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  background-color: #F5F5F5;
-  height: 5rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: #f5f5f5;
+    height: 5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.header-logo img{
-  height: 3rem;
+.header-logo img {
+    height: 3rem;
 }
 
 /* ナビゲーションのスタイル */
 .hamburger {
-  padding-right: 20px;
-  cursor: pointer;
+    padding-right: 20px;
+    cursor: pointer;
 }
 
 .hamburger .line {
-  display: block;
-  width: 40px;
-  height: 5px;
-  margin-bottom: 10px;
-  background-color: #E86B79;
+    display: block;
+    width: 40px;
+    height: 5px;
+    margin-bottom: 10px;
+    background-color: #e86b79;
 }
 
 /* .nav-links {
@@ -70,15 +80,15 @@ header {
 } */
 
 .nav-links a {
-  display: block;
-  text-align: center;
-  padding: 10px 0;
-  text-decoration: none;
-  font-size: 1.2rem;
-  font-weight: bold;
-  /* text-transform: uppercase; */
-  color: #E86B79;
-  transition: 0.7s;
+    display: block;
+    text-align: center;
+    padding: 10px 0;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    /* text-transform: uppercase; */
+    color: #e86b79;
+    transition: 0.7s;
 }
 
 /* .nav-links a:hover, a:focus {
@@ -86,102 +96,166 @@ header {
 } */
 
 .title-rubi {
-  color: #E86B79;
-  font-weight: 500;
+    color: #e86b79;
+    font-weight: 500;
 }
 
-  .under-chapter-title-line  {
-      border: solid #E86B79 1.2px;
-  }
+.under-chapter-title-line {
+    border: solid #e86b79 1.2px;
+}
 
 .expanded {
-  display: unset;
+    display: unset;
 }
 
 .chapter-box {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 6vh;
-  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 6vh;
 }
 
 .chapter-content {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  margin-bottom: 6vh;
-  
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 6vh;
 }
 
 .blog-list {
-  flex-direction: column;
-  list-style-type: none;
-	padding: 0;
-  width: 100%;
+    flex-direction: column;
+    list-style-type: none;
+    padding: 0;
+    width: 100%;
 }
 
 .news-list {
-  /* border-bottom: solid  #E86B79 1.2px; */
-  flex-direction: column;
-  padding: 0;
-  width: 100%;
-  list-style-type: none;
-  margin: 0;
+    /* border-bottom: solid  #E86B79 1.2px; */
+    flex-direction: column;
+    padding: 0;
+    width: 100%;
+    list-style-type: none;
+    margin: 0;
 }
 
 .work-list {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  flex-wrap: wrap;
-  gap: 2rem;
-  list-style: none;
-  padding: 0;
-  margin: 10vh 0 0 0;
-  width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 2rem;
+    list-style: none;
+    padding: 0;
+    margin: 10vh 0 0 0;
+    width: 100%;
 }
 
 .link-list {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  flex-wrap: wrap;
-  gap: 2rem;
-  list-style: none;
-  padding: 0;
-  margin: 10vh 0 0 0;
-  width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 2rem;
+    list-style: none;
+    padding: 0;
+    margin: 10vh 0 0 0;
+    width: 100%;
 }
 
 @media screen and (min-width: 636px) {
-  .nav-links {
-    margin-left: 5em;
-    display: block;
-    position: static;
-    width: auto;
-    background: none;
-  }
+    .nav-links {
+        margin-left: 5em;
+        display: block;
+        position: static;
+        width: auto;
+        background: none;
+    }
 
-  .nav-links a {
-    display: inline-block;
-    padding: 15px 20px;
-  }
+    .nav-links a {
+        display: inline-block;
+        padding: 15px 20px;
+    }
 
-  .hamburger {
-    display: none;
-  }
+    .hamburger {
+        display: none;
+    }
 }
 
 html.dark {
-  background-color: #0d0950;
-  color: #fff;
+    background-color: #0d0950;
+    color: #fff;
 }
 
 .dark .nav-links a {
-  color: #fff;
+    color: #fff;
 }
 
 html.dark header {
-  background-color: #0d0950;
+    background-color: #0d0950;
+}
+
+/* --- 目次スタイル --- */
+.toc {
+    /*background: #fff;*/
+    padding: 1rem;
+    border-radius: 8px;
+    /*box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);*/
+}
+
+.toc h2 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    /*border-bottom: 2px solid #e86b79;*/
+    padding-bottom: 0.5rem;
+}
+
+.toc ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.toc-item a {
+    text-decoration: none;
+    color: #707070;
+    display: block;
+    padding: 0.3rem 0;
+    font-weight: 500;
+    transition: color 0.2s ease-in-out;
+}
+
+.toc-item a:hover,
+.toc-item a:focus {
+    color: #e86b79;
+}
+
+/* h3見出しをインデント */
+.toc-depth-3 {
+    padding-left: 1rem;
+}
+
+/* --- レスポンシブ対応 --- */
+/* デスクトップではレイアウトを維持 */
+@media (min-width: 1024px) {
+    .post-layout {
+        display: grid;
+        grid-template-columns: 1fr 240px; /* 左にTOC、右にコンテンツ */
+        gap: 2rem;
+        align-items: start;
+    }
+
+    .post-layout aside {
+        position: sticky;
+        top: 6rem; /* ヘッダー(5rem) + 余白(1rem) */
+    }
+}
+
+/* タブレット・モバイルではTOCを非表示にし、1カラムレイアウトに */
+@media (max-width: 1023px) {
+    .post-layout {
+        display: block; /* グリッドを解除 */
+    }
+    .post-layout aside {
+        display: none;
+    }
 }

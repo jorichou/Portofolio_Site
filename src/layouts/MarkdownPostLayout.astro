@@ -1,22 +1,74 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
-const { frontmatter } = Astro.props;
+import TableOfContents from "../components/TableOfContents.astro";
+const { frontmatter, headings } = Astro.props;
+const formattedDate = new Date(frontmatter.pubDate)
+    .toLocaleDateString("ja-JP", {
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit",
+    })
+    .replace(/\//g, ".");
 ---
 
 <BaseLayout pageTitle={frontmatter.title}>
-    <p>{frontmatter.pubDate.toString().slice(0,10)}</p>
-    <p><em>{frontmatter.description}</em></p>
-    <p>著者: {frontmatter.author}</p>
-    <img src={frontmatter.image.url} width="300" alt={frontmatter.image.alt} />
-    <div class="tags">{
-        frontmatter.tags.map((tag) => (
-            <p class="tag"><a href={`/tags/${tag}`}>{tag}</a></p>
-        ))}
+    <div class="post-layout">
+        <div class="post-container">
+            <div class="post-top">
+                <p class="post-date">{formattedDate}</p>
+                <h1 class="post-title">{frontmatter.title}</h1>
+                <div class="img-container">
+                    <img
+                        src={frontmatter.image.url}
+                        alt={frontmatter.image.alt}
+                    />
+                </div>
+                <p class="description">{frontmatter.description}</p>
+            </div>
+            <article>
+                <slot />
+            </article>
+        </div>
+        <aside>
+            <TableOfContents headings={headings} />
+        </aside>
     </div>
-    <slot />
 </BaseLayout>
 <style>
-    a {
+    .post-date {
+        margin: 0;
+        font-weight: 500;
+        color: #707070;
+    }
+    .post-title {
+        color: #707070;
+    }
+
+    h2 {
+        color: #707070;
+    }
+
+    .post-container {
+        display: flex;
+        flex-direction: column;
+        padding: 7vh 5vw;
+    }
+
+    .img-container {
+        aspect-ratio: 16 / 9; /* Sets a 4:3 aspect ratio */
+        background-color: #f0f0f0; /* Placeholder color */
+        margin: 3vh 0;
+    }
+
+    .img-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* This makes the image cover the container, cropping it */
+        border-radius: 20px;
+        /*border: 2px #707070 solid;*/
+        margin: 0;
+    }
+    /*a {
         color: #00539f;
     }
 
@@ -32,5 +84,5 @@ const { frontmatter } = Astro.props;
         padding: .5rem 1rem;
         font-size: 1.15rem;
         background-color: #f8fcfd;
-    }
+    }*/
 </style>

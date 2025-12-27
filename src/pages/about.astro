@@ -34,33 +34,35 @@ const textCase = "uppercase"
 	</style>
 
 	<ContentFrame chapterTitle={pageTitle} rubi="私について">
-		<p>大学3年生です。初めてWebサイトを作りました。</p>
-		<p>作ったものや日常の活動などについて発信していきます。</p>
-		<h2>自己紹介</h2>
-		<ul>
-			<li>私の名前は{identity.name}です。</li>
-			<li>私は{identity.country}に住んでいる{identity.occupation}です。</li>
-			{
-				identity.hobbies.length >= 3 &&
-				<li>趣味は{identity.hobbies[0]}、{identity.hobbies[1]}、{identity.hobbies[2]}などです。</li>
-			}
-		</ul>
-		<p>私のスキルは以下の通りです。</p>
-		<ul>
-			{skills.map((skill) => (
-				<li class="skill">{skill}</li>
-			))}
-		</ul>
-		{
-			check && 
-			<p>課題は終わりました</p>
-			}
-		{
-			age >= 20 ?
-			<p>私は成人です。</p>
-			:
-			<p>私は未成年です。</p>
-		}
+        <div slot="chapter-content" class="content-box">
+    		<p>大学3年生です。初めてWebサイトを作りました。</p>
+    		<p>作ったものや日常の活動などについて発信していきます。</p>
+    		<h2>自己紹介</h2>
+    		<ul>
+    			<li>私の名前は{identity.name}です。</li>
+    			<li>私は{identity.country}に住んでいる{identity.occupation}です。</li>
+    			{
+    				identity.hobbies.length >= 3 &&
+    				<li>趣味は{identity.hobbies[0]}、{identity.hobbies[1]}、{identity.hobbies[2]}などです。</li>
+    			}
+    		</ul>
+    		<p>私のスキルは以下の通りです。</p>
+    		<ul>
+    			{skills.map((skill) => (
+    				<li class="skill">{skill}</li>
+    			))}
+    		</ul>
+    		{
+    			check && 
+    			<p>課題は終わりました</p>
+    			}
+    		{
+    			age >= 20 ?
+    			<p>私は成人です。</p>
+    			:
+    			<p>私は未成年です。</p>
+    		}
+        </div>
 	</ContentFrame>
 
 </BaseLayout>
