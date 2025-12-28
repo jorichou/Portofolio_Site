@@ -16,6 +16,7 @@ const toc = headings.filter(
 
 <nav class="toc" aria-label="目次">
     <h2>Index</h2>
+
     <ul>
         {
             toc.map((heading) => (
@@ -26,3 +27,103 @@ const toc = headings.filter(
         }
     </ul>
 </nav>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const tocItems = document.querySelectorAll(".toc-item");
+
+        const headings = Array.from(tocItems).map((item) => {
+            const link = item.querySelector("a");
+
+            const id = link?.getAttribute("href")?.slice(1);
+
+            return document.getElementById(id!);
+        });
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                let activeHeading: Element | null = null;
+
+                // Find the topmost visible heading
+
+                for (const entry of entries) {
+                    if (entry.isIntersecting) {
+                        if (
+                            !activeHeading ||
+                            entry.boundingClientRect.top <
+                                activeHeading.getBoundingClientRect().top
+                        ) {
+                            activeHeading = entry.target;
+                        }
+                    }
+                }
+
+                tocItems.forEach((item) => {
+                    const link = item.querySelector("a");
+
+                    const id = link?.getAttribute("href")?.slice(1);
+
+                    item.classList.remove("active");
+
+                    if (activeHeading && id === activeHeading.id) {
+                        item.classList.add("active");
+                    }
+                });
+
+                // If no heading is intersecting at the top of the viewport, check scroll position
+
+                // to highlight the last relevant one.
+
+                if (!activeHeading) {
+                    let lastVisibleItem: HTMLElement | null = null;
+
+                    for (let i = headings.length - 1; i >= 0; i--) {
+                        const heading = headings[i];
+
+                        if (
+                            heading &&
+                            heading.getBoundingClientRect().top <
+                                window.innerHeight / 3
+                        ) {
+                            lastVisibleItem = tocItems[i] as HTMLElement;
+
+                            break;
+                        }
+                    }
+
+                    if (lastVisibleItem) {
+                        tocItems.forEach((item) =>
+                            item.classList.remove("active"),
+                        );
+
+                        lastVisibleItem.classList.add("active");
+                    } else if (window.scrollY === 0) {
+                        tocItems.forEach((item) =>
+                            item.classList.remove("active"),
+                        );
+
+                        if (tocItems.length > 0) {
+                            tocItems[0].classList.add("active");
+                        }
+                    }
+                }
+            },
+
+            {
+                rootMargin: `0px 0px -${window.innerHeight - 100}px 0px`, // observe a small band at the top
+
+                threshold: 0,
+            },
+        );
+
+        headings.forEach((heading) => {
+            if (heading) observer.observe(heading);
+        });
+
+        // Set the first item as active on page load
+
+        if (tocItems.length > 0 && window.scrollY < 100) {
+            tocItems[0].classList.add("active");
+        }
+    });
+</script>

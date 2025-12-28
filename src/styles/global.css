@@ -213,6 +213,33 @@ html.dark header {
     list-style: none;
     padding: 0;
     margin: 0;
+    position: relative;
+    
+}
+
+.toc-item {
+    position: relative;
+}
+
+.toc-item::before {
+    content: "";
+    position: absolute;
+    /*left: -20px; */
+    top: 50%;
+    transform: translateY(-50%);
+    width: 8px;
+    height: 8px;
+    background-color: #e2e8f0; 
+    border-radius: 50%;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.toc-item.active::before {
+    background-color: #e86b79; 
+}
+
+.toc-item.active a {
+    color: #e86b79; /* Active text color */
 }
 
 .toc-item a {
@@ -222,6 +249,7 @@ html.dark header {
     padding: 0.3rem 0;
     font-weight: 500;
     transition: color 0.2s ease-in-out;
+    padding-left: 1.5rem; /* Space between dot and text */
 }
 
 .toc-item a:hover,
@@ -229,7 +257,6 @@ html.dark header {
     color: #e86b79;
 }
 
-/* h3見出しをインデント */
 .toc-depth-3 {
     padding-left: 1rem;
 }
