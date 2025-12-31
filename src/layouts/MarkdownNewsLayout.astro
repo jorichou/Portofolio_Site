@@ -1,20 +1,55 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
 const { frontmatter } = Astro.props;
+const formattedDate = new Date(frontmatter.pubDate)
+    .toLocaleDateString("ja-JP", {
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit",
+    })
+    .replace(/\//g, ".");
 ---
 
 <BaseLayout pageTitle={frontmatter.title}>
-    <p>{frontmatter.pubDate.toString().slice(0,10)}</p>
-    <p><em>{frontmatter.description}</em></p>
-    <p>著者: {frontmatter.author}</p>
+    <div class="news-container">
+        <div class="news-top">
+            <p class="post-date">{formattedDate}</p>
+            <h1 class="post-title">{frontmatter.title}</h1>
+            <!-- <p class="description">{frontmatter.description}</p> -->
+        </div>
+        <article>
+            <slot />
+        </article>
+    </div>
+    <!-- 
     <div class="tags">{
         frontmatter.tags.map((tag) => (
             <p class="tag"><a href={`/tags/${tag}`}>{tag}</a></p>
         ))}
     </div>
-    <slot />
+    <slot /> -->
 </BaseLayout>
 <style>
+    .post-date {
+        margin: 0;
+        font-weight: 500;
+        color: #707070;
+    }
+    .post-title {
+        color: #707070; 
+        margin: 5vh 0 8vh 0;
+    }
+
+    .news-container {
+        display: flex;
+        flex-direction: column;
+        padding: 7vh 5vw;
+    }
+
+    .description {
+        margin: 0;
+    }
+    
     a {
         color: #00539f;
     }
