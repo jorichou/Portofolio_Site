@@ -286,3 +286,95 @@ html.dark header {
         display: none;
     }
 }
+
+.intro-chapter {
+    display: flex;
+    justify-content: center;
+    padding: 10vh 0 0 0;
+}
+
+.intro-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    aspect-ratio: 1.65 / 1;
+    width: 50vw;
+    /*height: 20vh;*/
+    border-radius: 8px;
+    background-color: #fff;
+    padding: 3rem;
+    transition: box-shadow 0.5s;
+
+}
+
+.intro-card:hover {
+    box-shadow:0 0 10px rgba(232, 107, 121, 1)
+}
+
+.card-img {
+    height: 30vh;
+    aspect-ratio: 1 / 1;
+    border: solid #707070 2px;
+    border-radius: 1000px;
+}
+
+.card-main {
+    display: flex;
+    flex-direction: row;
+    /* justify-content: space-between; */
+    /* align-items: center; */
+}
+
+.card-text {
+    display: flex;
+    flex-direction: column;
+    margin-left: 4vw;
+}
+
+.dev-name {
+    font-size: 2.5rem;
+    color: #e86b79;
+    font-weight: bold;
+    margin: 0;
+}
+
+.intro-text {
+    font-size: 0.9rem;
+}
+
+.button-container {
+    display: flex;
+    justify-content: right;
+}
+
+.button-body.intro {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #fff;
+        width: 8.2rem;
+        height: 2.6rem;
+        border-radius: 6px;
+        border: solid #e86b79 2px;
+        transition: 0.4s;
+    }
+
+.button-body.intro a {
+    text-decoration: none;
+    color: #e86b79;
+    font-weight: bold;
+    font-size: 1.2rem;
+    transition: 0.4s;
+}
+
+.button-body.intro:hover {
+        background-color: #e86b79;
+    }
+
+.button-body.intro:hover a {
+    text-decoration: none;
+    color: #f5f5f5;
+    font-weight: bold;
+    font-size: 1.2rem;
+}

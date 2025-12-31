@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import Greeting from "../components/Greeting";
+import Greeting from "../components/Greeting.jsx";
 import ContentFrame from "../components/ContentFrame.astro";
 import Hero from "../components/Hero.astro";
 import Button from "../components/button.astro";
@@ -10,77 +10,140 @@ import WorkPost from "../components/WorkPost.astro";
 import SocialLink from "../components/SocialLink.astro";
 const pageTitle = "Home";
 
-const allPosts = await Astro.glob('../pages/posts/*.md');
-const sortedPosts = allPosts.sort((a, b) => new Date(b.frontmatter.pubDate).valueOf() - new Date(a.frontmatter.pubDate).valueOf());
+const allPosts = await Astro.glob("../pages/posts/*.md");
+const sortedPosts = allPosts.sort(
+    (a, b) =>
+        new Date(b.frontmatter.pubDate).valueOf() -
+        new Date(a.frontmatter.pubDate).valueOf(),
+);
 const posts = sortedPosts.slice(0, 4);
-const allNews = await Astro.glob('../pages/news/*.md')
-const sortedNews = allNews.sort((a, b) => new Date(b.frontmatter.puDate).valueOf() - new Date(a.frontmatter.puDate).valueOf());
+const allNews = await Astro.glob("../pages/news/*.md");
+const sortedNews = allNews.sort(
+    (a, b) =>
+        new Date(b.frontmatter.pubDate).valueOf() -
+        new Date(a.frontmatter.pubDate).valueOf(),
+);
 const news = sortedNews.slice(0, 4);
 
-const allWorks = await Astro.glob('../pages/works/*.md')
-const sortedWorks = allWorks.sort((a, b) => new Date(b.frontmatter.puDate).valueOf() - new Date(a.frontmatter.puDate).valueOf());
+const allWorks = await Astro.glob("../pages/works/*.md");
+const sortedWorks = allWorks.sort(
+    (a, b) =>
+        new Date(b.frontmatter.pubDate).valueOf() -
+        new Date(a.frontmatter.pubDate).valueOf(),
+);
 const works = sortedWorks.slice(0, 4);
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-	<Hero slot="hero" />
-	<ContentFrame chapterTitle="Works" rubi="作品">
-		<div slot="chapter-content" class="chapter-box">
-			<div class="chapter-content">
+    <Hero slot="hero" />
+    <ContentFrame chapterTitle="Works" rubi="作品">
+        <div slot="chapter-content" class="chapter-box">
+            <div class="chapter-content">
                 <ul class="work-list">
-                    {works.map((work)=> <WorkPost postDate={work.frontmatter.pubDate} img_url={work.frontmatter.image.url} work_type={work.frontmatter.type} title={work.frontmatter.title} url={work.url} />)   }
+                    {
+                        works.map((work) => (
+                            <WorkPost
+                                postDate={work.frontmatter.pubDate}
+                                img_url={work.frontmatter.image.url}
+                                work_type={work.frontmatter.type}
+                                title={work.frontmatter.title}
+                                url={work.url}
+                            />
+                        ))
+                    }
                 </ul>
             </div>
-			<Button buttonName="View All" link="/work"/>
-		</div>
-		
-	</ContentFrame>
-	<ContentFrame chapterTitle="About" rubi="私について">
-		<div slot="chapter-content" class="chapter-box">
-			<div class="chapter-content">
-				<h2>サブタイトル</h2>
-				<Greeting client:load messages={["Hej", "Hallo", "Hola", "Habari"]} />
-			</div>
-			<Button buttonName="View More" link="/about"/>
-		</div>
-	</ContentFrame>	
-	<ContentFrame chapterTitle="News" rubi="ニュース">
-		<div slot="chapter-content" class="chapter-box">
-			<div class="chapter-content">
-				<ul class="news-list">
-					{news.map((news) => <NewsPost postDate={news.frontmatter.pubDate} title={news.frontmatter.title} url={news.url} />)}
-				</ul>
-			</div>
-			<Button buttonName="View All" link="/news"/>
-		</div>
-	</ContentFrame>
-	<ContentFrame chapterTitle="Blog" rubi="ブログ">
-		<div slot="chapter-content" class="chapter-box">
-			<div class="chapter-content">
-				<ul class="blog-list">
-					{posts.map((post) => <BlogPost postDate={post.frontmatter.pubDate} img_url={post.frontmatter.image.url} title={post.frontmatter.title} url={post.url} />)}
-				</ul>
-			</div>
-			
-			<Button buttonName="View All" link="/blog"/>
-		</div>
-	</ContentFrame>
-	<ContentFrame chapterTitle="Links" rubi="リンク">
-		<div slot="chapter-content" class="chapter-box">
-			<div class="chapter-content">
-				<ul class="link-list">
-					<SocialLink platform="x" username="izuchi_main" platformName="X(Twitter)" />
-					<SocialLink platform="github" username="jorichou" platformName="GitHub" />
-					<SocialLink platform="kaggle" username="izuchi24" platformName="Kaggle" />
-					<SocialLink platform="atcoder" username="izuch" platformName="Atcoder" />
-
-
-				</ul>
-			</div>
-		</div>
-	</ContentFrame>
+            <Button buttonName="View All" link="/work" />
+        </div>
+    </ContentFrame>
+    <ContentFrame chapterTitle="About" rubi="私について">
+        <div slot="chapter-content" class="chapter-box">
+            <div class="chapter-content intro-chapter">
+                <div class="intro-card">
+                    <div class="card-main">
+                        <div class="card-img">
+                            <img src="izuchi-logo2.svg" alt="プロフィール画像" />
+                        </div>
+                        <div class="card-text">
+                            <p class="dev-name">Izuchi</p>
+                            <p class="intro-text">大学生です。</p>
+                        </div>
+                    </div>
+                    <!-- <Button buttonName="View More" link="/about" /> -->
+                     <div class="button-container">
+                        <div class="button-body intro">
+                            <a href="/about">View More</a>
+                        </div>
+                     </div>
+                </div>
+            </div>
+        </div>
+    </ContentFrame>
+    <ContentFrame chapterTitle="News" rubi="ニュース">
+        <div slot="chapter-content" class="chapter-box">
+            <div class="chapter-content">
+                <ul class="news-list">
+                    {
+                        news.map((news) => (
+                            <NewsPost
+                                postDate={news.frontmatter.pubDate}
+                                title={news.frontmatter.title}
+                                url={news.url}
+                            />
+                        ))
+                    }
+                </ul>
+            </div>
+            <Button buttonName="View All" link="/news" />
+        </div>
+    </ContentFrame>
+    <ContentFrame chapterTitle="Blog" rubi="ブログ">
+        <div slot="chapter-content" class="chapter-box">
+            <div class="chapter-content">
+                <ul class="blog-list">
+                    {
+                        posts.map((post) => (
+                            <BlogPost
+                                postDate={post.frontmatter.pubDate}
+                                img_url={post.frontmatter.image.url}
+                                title={post.frontmatter.title}
+                                url={post.url}
+                            />
+                        ))
+                    }
+                </ul>
+            </div>
+            <Button buttonName="View All" link="/blog" />
+        </div>
+    </ContentFrame>
+    <ContentFrame chapterTitle="Links" rubi="リンク">
+        <div slot="chapter-content" class="chapter-box">
+            <div class="chapter-content">
+                <ul class="link-list">
+                    <SocialLink
+                        platform="x"
+                        username="izuchi_main"
+                        platformName="X(Twitter)"
+                    />
+                    <SocialLink
+                        platform="github"
+                        username="jorichou"
+                        platformName="GitHub"
+                    />
+                    <SocialLink
+                        platform="kaggle"
+                        username="izuchi24"
+                        platformName="Kaggle"
+                    />
+                    <SocialLink
+                        platform="atcoder"
+                        username="izuch"
+                        platformName="Atcoder"
+                    />
+                </ul>
+            </div>
+        </div>
+    </ContentFrame>
 </BaseLayout>
 
-<style>
-
-</style>
+<style></style>
