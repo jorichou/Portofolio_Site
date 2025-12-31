@@ -1,13 +1,16 @@
 ---
+import type { GetStaticPaths } from "astro";
+import type { GetStaticPaths } from "astro";
+import type { GetStaticPaths } from "astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import ContentFrame from "../components/ContentFrame.astro";
 
 const pageTitle = "About";
 const identity = {
-	name: 'Izuchi',
-	country: '日本',
-	occupation: '大学生',
-	hobbies: ['プログラミング', '読書', 'ゲーム'],
+    name: "Izuchi",
+    country: "日本",
+    occupation: "大学生",
+    hobbies: ["プログラミング", "読書", "ゲーム"],
 };
 const skills = ["JavaScript", "Python", "Astro", "HTML", "CSS"];
 const check = false;
@@ -15,27 +18,204 @@ const check = false;
 const age = 19;
 const skillColor = "blue";
 const fontWeight = "bold";
-const textCase = "uppercase"
+const textCase = "uppercase";
 ---
 
-<BaseLayout pageTitle={pageTitle}>
-	<style define:vars={{skillColor, fontWeight, textCase}}>
-		h1 {
-			color: #E86B79;
-			font-size: 3rem;
-		}
-		.skill {
-			/* color: #4A90E2; */
-			color: var(--skillColor);
-			/* font-weight: bold; */
-			font-weight: var(--fontWeight);
-			text-transform: var(--textCase);
-		}
-	</style>
+<style define:vars={{ skillColor, fontWeight, textCase }}>
+    h1 {
+        color: #e86b79;
+        font-size: 3rem;
+    }
 
-	<ContentFrame chapterTitle={pageTitle} rubi="私について">
+    h2 {
+        color: #e86b79;
+        font-size: 2.5rem;
+    }
+
+    .skill {
+        /* color: #4A90E2; */
+        color: var(--skillColor);
+        /* font-weight: bold; */
+        font-weight: var(--fontWeight);
+        text-transform: var(--textCase);
+    }
+
+    .introduce-container {
+        display: flex;
+        flex-direction: row;
+        /*justify-content: space-between;*/
+        margin: 10vh 0;
+    }
+
+    .image-container {
+        width: 24vw;
+        border: solid #e86b79 2px;
+        border-radius: 1000px;
+    }
+
+    .text-container {
+        display: flex;
+        flex-direction: column;
+        margin: 0 0 0 15vw;
+    }
+
+    .dev-name {
+        font-size: 3.5rem;
+        /*margin: 0 0 2vh 0;*/
+    }
+
+    .intro-text {
+        font-size: 1.1rem;
+    }
+    
+    .skill-container {
+        /*margin: 0 0 10vh 0;*/
+    }
+
+    .tabs {
+        gap: 20vw;
+    }
+
+    .tab-line {
+        border: solid #e86b79 1px;
+    }
+
+    .tab-btn {
+        padding: 10px 20px;
+        cursor: pointer;
+        border: none;
+        background: #f1f1f1;
+        font-weight: bold;
+        color: #e86b79;
+        width: 14vw;
+        height: 9vh;
+        font-size: 1.4rem;
+    }
+
+    .tab-btn.active {
+        background: #e86b79;
+        font-weight: bold;
+        color: #ffffff;
+    }
+
+    .tab-content {
+        display: none;
+    }
+    
+    .tab-content img {
+        height: 12vh;
+        margin: 4vh 0;
+    }
+
+    .tab-content.active {
+        display: block;
+    }
+    
+    ul, ol {
+      padding: 0;
+      position: relative;
+    }
+    
+    ul li, ol li {
+      color: #e86b79;
+      border-left: solid 6px #e86b79;/*左側の線*/
+      background: #f9f0f0;/*背景色*/
+      margin-bottom: 3px;/*下のバーとの余白*/
+      line-height: 1.5;
+      padding: 0.5em;
+      list-style-type: none!important;/*ポチ消す*/
+    }
+    
+    li p {
+        color: #424242;
+        font-weight: normal;
+    }
+</style>
+
+<BaseLayout pageTitle={pageTitle}>
+    <ContentFrame chapterTitle={pageTitle} rubi="私について">
         <div slot="chapter-content" class="content-box">
-    		<p>大学3年生です。初めてWebサイトを作りました。</p>
+            <div class="introduce-container">
+                <div class="image-container">
+                    <img src="/izuchi-logo2.svg" alt="プロフィール画像" />
+                </div>
+                <div class="text-container">
+                    <h1 class="dev-name">Izuchi</h1>
+                    <article class="intro-text-container">
+                        <p class="intro-text">
+                            大学3年生です。初めてWebサイトを作りました。
+                        </p>
+                        <p class="intro-text">
+                            作ったものや日常の活動などについて発信していきます。
+                        </p>
+                    </article>
+                </div>
+            </div>
+            <h2>Skills</h2>
+            <div class="skill-container">
+                <div class="tabs">
+                    <button
+                        class="tab-btn active"
+                        onclick="openTab(event, 'content1')">Languages</button
+                    >
+                    <button class="tab-btn" onclick="openTab(event, 'content2')"
+                        >FlameWorks</button
+                    >
+                    <button class="tab-btn" onclick="openTab(event, 'content3')"
+                        >Tools</button
+                    >
+                </div>
+                <div class="tab-line"></div>
+                <div id="content1" class="tab-content active">
+                    <p align="left">
+                        <a href="https://skillicons.dev">
+                            <img src="https://skillicons.dev/icons?i=py,html,css,js,c,cpp,java" />
+                        </a>
+                    </p>
+                </div>
+                <div id="content2" class="tab-content">
+                    <p align="left">
+                        <a href="https://skillicons.dev">
+                            <img src="https://skillicons.dev/icons?i=astro,flask" />
+                        </a>
+                    </p>
+                </div>
+                <div id="content3" class="tab-content">
+                    <p align="left">
+                        <a href="https://skillicons.dev">
+                            <img src="https://skillicons.dev/icons?i=anaconda,discord,eclipse,figma,git,github,ai,notion,obsidian,pr,vscode,xd" />
+                        </a>
+                    </p>
+                </div>
+    
+                <script is:inline>
+                    function openTab(evt, tabId) {
+                        const contents =
+                            document.getElementsByClassName("tab-content");
+                        for (let i = 0; i < contents.length; i++) {
+                            contents[i].classList.remove("active");
+                        }
+    
+                        const tabs = document.getElementsByClassName("tab-btn");
+                        for (let i = 0; i < tabs.length; i++) {
+                            tabs[i].classList.remove("active");
+                        }
+    
+                        document.getElementById(tabId)?.classList.add("active");
+                        evt.currentTarget.classList.add("active");
+                    }
+                </script>
+            </div>
+            <h2>資格・試験</h2>
+            <ul>
+                <li>
+                    <p>基本情報技術者試験（2025年）</p>
+                </li>
+                <li>
+                    <p>TOEIC L&R 620点（2024年）</p>
+                </li>
+            </ul>
+            <!-- <p></p>
     		<p>作ったものや日常の活動などについて発信していきます。</p>
     		<h2>自己紹介</h2>
     		<ul>
@@ -53,7 +233,7 @@ const textCase = "uppercase"
     			))}
     		</ul>
     		{
-    			check && 
+    			check &&
     			<p>課題は終わりました</p>
     			}
     		{
@@ -61,8 +241,7 @@ const textCase = "uppercase"
     			<p>私は成人です。</p>
     			:
     			<p>私は未成年です。</p>
-    		}
+    		} --->
         </div>
-	</ContentFrame>
-
+    </ContentFrame>
 </BaseLayout>
