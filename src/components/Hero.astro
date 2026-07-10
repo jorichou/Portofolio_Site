@@ -13,7 +13,52 @@
         max-height: 800px;
         width: 100%;
         /* margin-bottom: 10vh; */
-        padding: 7vw 8.5vw;
+        /* padding: 7vw 8.5vw; */
+    }
+
+    .bg-slide {
+        position: relative;
+        /* make the slide area full-bleed (viewport width) while keeping it centered */
+        width: 100vw;
+        /* margin-left: calc(50% - 50vw); */
+        height: 100%;
+        overflow: hidden;
+    }
+    .img-01, .img-02, .img-03{
+        position: absolute;
+        /* center the image container so scaling stays centered */
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100vw;
+        height: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* put the animation on the actual <img> so transform scaling works cleanly */
+    .img-01 img {
+        width: 100vw;
+        height: auto;
+        display: block;
+        animation: slide-animation-01 24s infinite;
+    }
+    .img-02 img {
+        width: 100vw;
+        height: auto;
+        display: block;
+        animation: slide-animation-02 24s infinite;
+    }
+
+    .bg-slide::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background-color: rgba(0, 0, 0, .5);
     }
     
     .message-box {
@@ -49,8 +94,10 @@
             height: clamp(600px, 60vh, 800px);
             width: 100%;
             margin-bottom: 10vh;
-            padding: 0 8.5vw;
+            /* padding: 0 8.5vw; */
         }
+
+        
     
         .message-box {
             display: flex;
@@ -67,14 +114,34 @@
         }
 
     }
+
+    @keyframes slide-animation-01 {
+        0% {opacity: 1; transform: scale(1.0);}
+        30% {opacity: 1;}
+        50% {opacity: 1; transform: scale(1.15);}
+        90% {opacity: 0}
+        100% {opacity: 1; transform: scale(1.0);}
+    }
+    @keyframes slide-animation-02 {
+        0% {opacity: 0;}
+        30% {opacity: 0; transform: scale(1.1);}
+        50% {opacity: 0;}
+        60% {opacity: 1;}
+        70% {opacity: 1; transform: scale(1.0);}
+        100% {opacity: 1;}
+    }
 </style>
 
 <div class="hero">
-    <div class="message-box">
+    <!-- <div class="message-box">
         <h1 class="hero-message">Welcome to Ryousuke's</h1>
         <h1 class="hero-message">Web Site!</h1>
     </div>
     <div class="hero-img">
         <img src="/izuchi-logo2.svg" alt="ヒーローのロゴ">
+    </div> -->
+    <div class="bg-slide">
+        <div class="img-01"><img src="/images/hero-slide/260614194404856.JPG" alt="slide 1"></div>
+        <div class="img-02"><img src="/images/hero-slide/260112144151611.JPG" alt="slide 2"></div>
     </div>
 </div>
