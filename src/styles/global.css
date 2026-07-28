@@ -92,8 +92,10 @@ header.header-hidden .site-title {
     pointer-events: none;
 }
 
-.header-logo img {
-    height: 3rem;
+header .site-title img {
+    height: 3.3rem;
+    width: auto;
+    display: block;
 }
 
 /* ナビゲーションのスタイル */
