@@ -10,6 +10,7 @@ import BlogPost from "../components/BlogPost.astro";
 import NewsPost from "../components/NewsPost.astro";
 import WorkPost from "../components/WorkPost.astro";
 import SocialLink from "../components/SocialLink.astro";
+import Social from "../components/Social.astro";
 
 const pageTitle = "Home";
 
@@ -130,6 +131,10 @@ const tags = [...new Set(activeWorks.map((post: CollectionEntry<'works'>) => pos
                         platformURL="https://x.com/izuchi_main"
                         platformName="X(Twitter)"
                     /> -->
+                    <SocialLink
+                        platformURL="https://www.instagram.com/ryousuke_102/"
+                        platformName="Instagram"
+                    />
                     <SocialLink
                         platformURL="https://www.facebook.com/profile.php?id=100090539947363&locale=ja_JP"
                         platformName="Facebook"
